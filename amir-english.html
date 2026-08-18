@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amir English | انگلیسی با امیر</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#ffffff;
+    --blue-pale:#eaf4ff;
+    --blue:#1868e0;
+    --blue-deep:#0a2f6b;
+    --orange:#ff8a2b;
+    --orange-deep:#e8620a;
+    --ink:#0a2f6b;
+    --radius:22px;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:'Vazirmatn', sans-serif;
+    background:
+      radial-gradient(circle at 15% 8%, rgba(24,104,224,0.10), transparent 40%),
+      radial-gradient(circle at 90% 12%, rgba(255,138,43,0.10), transparent 35%),
+      linear-gradient(180deg, #ffffff 0%, #eaf4ff 45%, #ffffff 100%);
+    color:var(--ink);
+    overflow-x:hidden;
+  }
+
+  a{color:inherit; text-decoration:none;}
+
+  /* ---------- decorative background shapes ---------- */
+  .bg-shape{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(2px);
+    opacity:0.5;
+    pointer-events:none;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:40px 20px;
+    overflow:hidden;
+  }
+
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(180deg, rgba(24,104,224,0.06), transparent 60%);
+    z-index:0;
+  }
+
+  .stripe{
+    position:absolute;
+    width:220%;
+    height:140px;
+    background:var(--blue);
+    opacity:0.06;
+    transform:rotate(-8deg);
+    z-index:0;
+  }
+  .stripe.s1{top:12%; left:-60%;}
+  .stripe.s2{top:70%; left:-70%; background:var(--orange);}
+
+  .eyebrow{
+    position:relative;
+    z-index:2;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--white);
+    border:2px solid var(--blue-pale);
+    color:var(--blue);
+    font-weight:600;
+    font-size:14px;
+    padding:8px 18px;
+    border-radius:999px;
+    box-shadow:0 6px 20px rgba(10,47,107,0.08);
+    margin-bottom:34px;
+  }
+  .eyebrow .dot{width:8px; height:8px; border-radius:50%; background:var(--orange); animation:pulse 1.6s ease-in-out infinite;}
+
+  @keyframes pulse{
+    0%,100%{transform:scale(1); opacity:1;}
+    50%{transform:scale(1.5); opacity:0.5;}
+  }
+
+  .brand-name{
+    position:relative;
+    z-index:2;
+    font-family:'Baloo 2','Vazirmatn', sans-serif;
+    font-weight:800;
+    font-size:clamp(48px, 11vw, 118px);
+    line-height:1;
+    color:var(--orange);
+    text-shadow:0 10px 0 rgba(232,98,10,0.08), 0 18px 34px rgba(255,138,43,0.35);
+    animation:float 4.2s ease-in-out infinite;
+    letter-spacing:1px;
+  }
+
+  @keyframes float{
+    0%,100%{transform:translateY(0px) rotate(-0.6deg);}
+    50%{transform:translateY(-22px) rotate(0.6deg);}
+  }
+
+  .brand-sub{
+    position:relative;
+    z-index:2;
+    margin-top:18px;
+    font-size:clamp(16px,3vw,22px);
+    font-weight:600;
+    color:var(--blue-deep);
+  }
+
+  .hero-text{
+    position:relative;
+    z-index:2;
+    max-width:680px;
+    margin-top:26px;
+    font-size:17px;
+    line-height:2.1;
+    color:#264a80;
+  }
+
+  .hero-text b{color:var(--blue); font-weight:700;}
+  .hero-text .go{color:var(--orange); font-weight:800; font-family:'Baloo 2',sans-serif;}
+
+  .cta-row{
+    position:relative;
+    z-index:2;
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-top:34px;
+  }
+
+  .btn{
+    padding:15px 30px;
+    border-radius:999px;
+    font-weight:700;
+    font-size:15px;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg, var(--orange), var(--orange-deep));
+    color:#fff;
+    box-shadow:0 12px 26px rgba(255,138,43,0.4);
+  }
+  .btn-secondary{
+    background:#fff;
+    color:var(--blue);
+    border:2px solid var(--blue-pale);
+  }
+  .btn:hover{transform:translateY(-4px);}
+
+  .scroll-cue{
+    position:absolute;
+    bottom:28px;
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:6px;
+    font-size:12px;
+    color:var(--blue);
+    font-weight:600;
+    opacity:0.7;
+    animation:bob 2s ease-in-out infinite;
+  }
+  @keyframes bob{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(8px);}
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section.block{
+    position:relative;
+    max-width:1040px;
+    margin:0 auto;
+    padding:90px 24px;
+  }
+
+  .section-head{
+    text-align:center;
+    margin-bottom:52px;
+  }
+  .section-tag{
+    display:inline-block;
+    font-size:13px;
+    font-weight:700;
+    color:var(--orange);
+    background:#fff2e5;
+    padding:6px 16px;
+    border-radius:999px;
+    margin-bottom:14px;
+  }
+  .section-title{
+    font-family:'Baloo 2','Vazirmatn',sans-serif;
+    font-size:clamp(28px,4.4vw,42px);
+    font-weight:800;
+    color:var(--blue-deep);
+  }
+  .section-sub{
+    margin-top:12px;
+    color:#5b7bb0;
+    font-size:15.5px;
+    max-width:560px;
+    margin-left:auto;
+    margin-right:auto;
+    line-height:1.9;
+  }
+
+  /* ---------- GRAMMAR ---------- */
+  .grammar-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:22px;
+  }
+
+  .g-card{
+    background:#fff;
+    border-radius:var(--radius);
+    padding:28px 26px;
+    border:1px solid #e3edfb;
+    box-shadow:0 10px 30px rgba(10,47,107,0.06);
+    position:relative;
+    overflow:hidden;
+  }
+  .g-card::before{
+    content:"";
+    position:absolute;
+    top:-40px;
+    left:-40px;
+    width:100px;
+    height:100px;
+    background:var(--blue-pale);
+    border-radius:50%;
+    z-index:0;
+  }
+  .g-card > *{position:relative; z-index:1;}
+
+  .g-label{
+    display:inline-block;
+    font-size:12px;
+    font-weight:700;
+    color:var(--blue);
+    background:var(--blue-pale);
+    padding:4px 12px;
+    border-radius:999px;
+    margin-bottom:14px;
+  }
+  .g-title{
+    font-weight:700;
+    font-size:19px;
+    color:var(--blue-deep);
+    margin-bottom:12px;
+  }
+  .g-en{
+    font-family:'Baloo 2',sans-serif;
+    font-size:20px;
+    font-weight:700;
+    color:var(--orange);
+    margin-bottom:6px;
+    direction:ltr;
+    text-align:left;
+  }
+  .g-fa{
+    color:#446;
+    font-size:15px;
+    line-height:1.9;
+  }
+
+  /* ---------- COLORS ---------- */
+  .color-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+    gap:18px;
+  }
+  .c-card{
+    background:#fff;
+    border-radius:18px;
+    padding:20px;
+    text-align:center;
+    border:1px solid #e3edfb;
+    box-shadow:0 8px 22px rgba(10,47,107,0.05);
+    transition:transform .2s ease;
+  }
+  .c-card:hover{transform:translateY(-6px);}
+  .c-swatch{
+    width:52px;
+    height:52px;
+    border-radius:16px;
+    margin:0 auto 14px;
+    box-shadow:0 8px 16px rgba(0,0,0,0.12), inset 0 0 0 3px rgba(255,255,255,0.6);
+  }
+  .c-en{
+    font-family:'Baloo 2',sans-serif;
+    font-weight:700;
+    font-size:16px;
+    color:var(--blue-deep);
+    direction:ltr;
+  }
+  .c-fa{
+    margin-top:4px;
+    font-size:14px;
+    color:#7a8db8;
+  }
+
+  /* ---------- EXAMPLE STRIP ---------- */
+  .example-box{
+    margin-top:60px;
+    background:linear-gradient(135deg, var(--blue), var(--blue-deep));
+    border-radius:28px;
+    padding:44px 30px;
+    text-align:center;
+    color:#fff;
+    position:relative;
+    overflow:hidden;
+  }
+  .example-box::after{
+    content:"⚽";
+    position:absolute;
+    font-size:150px;
+    opacity:0.12;
+    left:-10px;
+    bottom:-40px;
+    transform:rotate(-15deg);
+  }
+  .example-box .tag{
+    font-size:13px;
+    font-weight:700;
+    background:rgba(255,255,255,0.15);
+    display:inline-block;
+    padding:5px 16px;
+    border-radius:999px;
+    margin-bottom:16px;
+  }
+  .example-box .en{
+    font-family:'Baloo 2',sans-serif;
+    font-size:clamp(22px,4vw,32px);
+    font-weight:700;
+    direction:ltr;
+    color:var(--orange);
+  }
+  .example-box .fa{
+    margin-top:10px;
+    font-size:17px;
+    color:#dce9ff;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact-wrap{
+    background:#fff;
+    border-radius:32px;
+    padding:56px 30px;
+    text-align:center;
+    box-shadow:0 20px 50px rgba(10,47,107,0.08);
+    border:1px solid #e3edfb;
+  }
+
+  .contact-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:18px;
+    margin-top:36px;
+  }
+
+  .contact-card{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    background:var(--blue-pale);
+    padding:20px;
+    border-radius:18px;
+    text-align:right;
+    transition:transform .2s ease, background .2s ease;
+  }
+  .contact-card:hover{transform:translateY(-4px); background:#fff2e5;}
+
+  .contact-icon{
+    width:46px;
+    height:46px;
+    border-radius:14px;
+    background:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    flex-shrink:0;
+    box-shadow:0 6px 14px rgba(10,47,107,0.1);
+  }
+  .contact-label{
+    font-size:12px;
+    color:#5b7bb0;
+    font-weight:600;
+  }
+  .contact-value{
+    font-weight:700;
+    color:var(--blue-deep);
+    font-size:15px;
+    direction:ltr;
+    text-align:right;
+    unicode-bidi:plaintext;
+  }
+
+  footer{
+    text-align:center;
+    padding:40px 20px 50px;
+    color:#7a8db8;
+    font-size:13px;
+  }
+  footer .fname{color:var(--orange); font-weight:800; font-family:'Baloo 2',sans-serif;}
+
+  @media(max-width:600px){
+    section.block{padding:64px 18px;}
+    .example-box::after{display:none;}
+  }
+</style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="stripe s1"></div>
+    <div class="stripe s2"></div>
+
+    <div class="eyebrow"><span class="dot"></span> آموزش زبان انگلیسی، قدم به قدم</div>
+
+    <h1 class="brand-name">Amir English</h1>
+    <div class="brand-sub">انگلیسی با امیر 🧡</div>
+
+    <p class="hero-text">
+      سلام! به دنیای <b>انگلیسی با امیر</b> خوش اومدید.
+      ما قراره کلی آموزش زبان انگلیسی رو به شما یاد بدیم، از گرامرهای پایه تا مکالمه‌ی روان،
+      پس همراه من باشید <span class="go">let's go!</span>
+    </p>
+
+    <div class="cta-row">
+      <a href="#grammar" class="btn btn-primary">شروع یادگیری 🚀</a>
+      <a href="#contact" class="btn btn-secondary">راه‌های ارتباطی</a>
+    </div>
+
+    <div class="scroll-cue">اسکرول کن ↓</div>
+  </section>
+
+  <!-- GRAMMAR -->
+  <section class="block" id="grammar">
+    <div class="section-head">
+      <span class="section-tag">GRAMMAR</span>
+      <h2 class="section-title">گرامرهای پایه</h2>
+      <p class="section-sub">چند تا از مهم‌ترین ساختارهای گرامری انگلیسی، همراه با مثال ساده و کاربردی.</p>
+    </div>
+
+    <div class="grammar-grid">
+      <div class="g-card">
+        <span class="g-label">Present Simple</span>
+        <div class="g-title">زمان حال ساده</div>
+        <div class="g-en">I play football.</div>
+        <div class="g-fa">من فوتبال بازی می‌کنم. برای کارهای عادی و روزمره استفاده می‌شه.</div>
+      </div>
+
+      <div class="g-card">
+        <span class="g-label">Present Continuous</span>
+        <div class="g-title">زمان حال استمراری</div>
+        <div class="g-en">I am playing football.</div>
+        <div class="g-fa">من در حال فوتبال بازی کردن هستم. برای کاری که همین الان داره اتفاق می‌افته.</div>
+      </div>
+
+      <div class="g-card">
+        <span class="g-label">Simple Past</span>
+        <div class="g-title">زمان گذشته ساده</div>
+        <div class="g-en">I played football yesterday.</div>
+        <div class="g-fa">من دیروز فوتبال بازی کردم. برای کاری که در گذشته تموم شده.</div>
+      </div>
+
+      <div class="g-card">
+        <span class="g-label">Future Simple</span>
+        <div class="g-title">زمان آینده ساده</div>
+        <div class="g-en">I will play football tomorrow.</div>
+        <div class="g-fa">من فردا فوتبال بازی خواهم کرد. برای کاری که در آینده انجام می‌شه.</div>
+      </div>
+
+      <div class="g-card">
+        <span class="g-label">Negative Form</span>
+        <div class="g-title">جمله‌ی منفی</div>
+        <div class="g-en">I don't play football.</div>
+        <div class="g-fa">من فوتبال بازی نمی‌کنم. با don't / doesn't جمله رو منفی می‌کنیم.</div>
+      </div>
+
+      <div class="g-card">
+        <span class="g-label">Question Form</span>
+        <div class="g-title">جمله‌ی سؤالی</div>
+        <div class="g-en">Do you play football?</div>
+        <div class="g-fa">آیا تو فوتبال بازی می‌کنی؟ با Do / Does جمله رو سؤالی می‌کنیم.</div>
+      </div>
+    </div>
+
+    <div class="example-box">
+      <div class="tag">EXAMPLE OF THE DAY</div>
+      <div class="en">I play football. ⚽</div>
+      <div class="fa">من فوتبال بازی می‌کنم — یکی از ساده‌ترین و پرکاربردترین جمله‌های زمان حال ساده.</div>
+    </div>
+  </section>
+
+  <!-- COLORS -->
+  <section class="block" id="colors">
+    <div class="section-head">
+      <span class="section-tag">VOCABULARY</span>
+      <h2 class="section-title">رنگ‌ها</h2>
+      <p class="section-sub">یادگیری اسم رنگ‌ها به انگلیسی، یکی از اولین قدم‌های ساختن دایره لغات شماست.</p>
+    </div>
+
+    <div class="color-grid">
+      <div class="c-card">
+        <div class="c-swatch" style="background:#e02424;"></div>
+        <div class="c-en">Red</div>
+        <div class="c-fa">قرمز</div>
+      </div>
+      <div class="c-card">
+        <div class="c-swatch" style="background:#1868e0;"></div>
+        <div class="c-en">Blue</div>
+        <div class="c-fa">آبی</div>
+      </div>
+      <div class="c-card">
+        <div class="c-swatch" style="background:#ff8a2b;"></div>
+        <div class="c-en">Orange</div>
+        <div class="c-fa">نارنجی</div>
+      </div>
+      <div class="c-card">
+        <div class="c-swatch" style="background:#22a559;"></div>
+        <div class="c-en">Green</div>
+        <div class="c-fa">سبز</div>
+      </div>
+      <div class="c-card">
+        <div class="c-swatch" style="background:#f4d03f;"></div>
+        <div class="c-en">Yellow</div>
+        <div class="c-fa">زرد</div>
+      </div>
+      <div class="c-card">
+        <div class="c-swatch" style="background:#8e44ad;"></div>
+        <div class="c-en">Purple</div>
+        <div class="c-fa">بنفش</div>
+      </div>
+      <div class="c-card">
+        <div class="c-swatch" style="background:#1c1c1c;"></div>
+        <div class="c-en">Black</div>
+        <div class="c-fa">مشکی</div>
+      </div>
+      <div class="c-card">
+        <div class="c-swatch" style="background:#ffffff; border:2px solid #e3edfb;"></div>
+        <div class="c-en">White</div>
+        <div class="c-fa">سفید</div>
+      </div>
+      <div class="c-card">
+        <div class="c-swatch" style="background:#8d6e63;"></div>
+        <div class="c-en">Brown</div>
+        <div class="c-fa">قهوه‌ای</div>
+      </div>
+      <div class="c-card">
+        <div class="c-swatch" style="background:#f8a5c2;"></div>
+        <div class="c-en">Pink</div>
+        <div class="c-fa">صورتی</div>
+      </div>
+      <div class="c-card">
+        <div class="c-swatch" style="background:#95a5a6;"></div>
+        <div class="c-en">Gray</div>
+        <div class="c-fa">خاکستری</div>
+      </div>
+      <div class="c-card">
+        <div class="c-swatch" style="background:#00bcd4;"></div>
+        <div class="c-en">Cyan</div>
+        <div class="c-fa">فیروزه‌ای</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="block" id="contact">
+    <div class="contact-wrap">
+      <span class="section-tag">GET IN TOUCH</span>
+      <h2 class="section-title">راه‌های ارتباط با ما</h2>
+      <p class="section-sub">هر سؤالی داشتی، از هر کدوم از راه‌های زیر می‌تونی باهام در ارتباط باشی.</p>
+
+      <div class="contact-grid">
+        <a class="contact-card" href="tel:09199780637">
+          <div class="contact-icon">📞</div>
+          <div>
+            <div class="contact-label">تماس تلفنی</div>
+            <div class="contact-value">0919 978 0637</div>
+          </div>
+        </a>
+
+        <a class="contact-card" href="https://instagram.com/englishwishamir" target="_blank" rel="noopener">
+          <div class="contact-icon">📷</div>
+          <div>
+            <div class="contact-label">اینستاگرام</div>
+            <div class="contact-value">@englishwishamir</div>
+          </div>
+        </a>
+
+        <a class="contact-card" href="https://rubika.ir/Amir_English" target="_blank" rel="noopener">
+          <div class="contact-icon">💬</div>
+          <div>
+            <div class="contact-label">روبیکا</div>
+            <div class="contact-value">@Amir_English</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    ساخته‌شده با 🧡 برای <span class="fname">Amir English</span> — انگلیسی یاد گرفتن رو ساده کن.
+  </footer>
+
+</body>
+</html>
